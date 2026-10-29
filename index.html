@@ -28,6 +28,8 @@
         }
 
         [data-theme="dark"] {
+            --mtn-blue: #ffcc00;
+            --mtn-dark: #000000;
             --text-primary: #fffdf4;
             --text-secondary: #d6ceb0;
             --bg-body: #101010;
@@ -239,6 +241,23 @@
         .section-header p, .footer-copy, .form-label-helper { color: var(--text-secondary); }
         [data-theme="dark"] .btn-outline { background: var(--surface); color: var(--mtn-yellow); border-color: var(--mtn-yellow); }
         [data-theme="dark"] .btn-outline:hover { background: var(--mtn-yellow); color: #171717; }
+        [data-theme="dark"] .btn-buy { background: var(--mtn-yellow); color: #171717; }
+        [data-theme="dark"] .bundle-badge { background: #4a3b00; color: #ffe680; }
+        [data-theme="dark"] .badge-no-expiry { background: #123d2b; color: #a7f3d0; }
+        [data-theme="dark"] .info-box { background: #2b260d !important; border-color: #665500 !important; }
+        [data-theme="dark"] .info-box-content p { color: #ffe680 !important; }
+        [data-theme="dark"] .checkout-message.info { color: #bfdbfe; background: #172554; border-color: #1d4ed8; }
+        [data-theme="dark"] .checkout-message.warning { color: #fde68a; background: #422006; border-color: #92400e; }
+        [data-theme="dark"] .checkout-message.error { color: #fecaca; background: #450a0a; border-color: #b91c1c; }
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"],
+        [data-theme="dark"] #successTicket { background: var(--surface-soft) !important; border-color: var(--border-color) !important; }
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"] p { color: #ffe680 !important; }
+        [data-theme="dark"] #successTicket [style*="background: white"] { background: var(--surface) !important; border-color: var(--border-color) !important; }
+        [data-theme="dark"] #successTicket [style*="border-bottom: 1px solid #E2E8F0"],
+        [data-theme="dark"] #successTicket [style*="border-top: 1px solid #E2E8F0"] { border-color: var(--border-color) !important; }
+        [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] { background: #123d2b !important; border-color: #18794e !important; }
+        [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] p { color: #a7f3d0 !important; }
+        [data-theme="dark"] #successPage .info-box { background: #2b260d !important; }
     </style>
 </head>
 <body>
