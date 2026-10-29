@@ -12,16 +12,30 @@
         
         :root {
             --mtn-yellow: #FFCC00;
-            --mtn-blue: #003399;
-            --mtn-dark: #001a4d;
+            --mtn-blue: #171717;
+            --mtn-dark: #000000;
             --premium-gold: #D4AF37;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --bg-body: #F1F5F9;
+            --text-primary: #171717;
+            --text-secondary: #5c5540;
+            --bg-body: #fffdf4;
             --glass: rgba(255, 255, 255, 0.9);
             --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            --surface: #ffffff;
+            --surface-soft: #fff9e6;
+            --border-color: rgba(23, 23, 23, 0.10);
             --radius-xl: 32px;
             --radius-lg: 20px;
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #fffdf4;
+            --text-secondary: #d6ceb0;
+            --bg-body: #101010;
+            --glass: rgba(18, 18, 18, 0.92);
+            --surface: #1b1b1b;
+            --surface-soft: #24200f;
+            --border-color: rgba(255, 204, 0, 0.22);
+            --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
         }
 
         body { 
@@ -32,6 +46,7 @@
             display: flex; 
             flex-direction: column;
             overflow-x: hidden;
+            transition: background 0.35s ease, color 0.35s ease;
         }
 
         /* Animated Background Elements */
@@ -51,12 +66,20 @@
             backdrop-filter: blur(12px); 
             padding: 20px 24px; 
             position: sticky; top: 0; z-index: 1000; 
-            border-bottom: 1px solid rgba(0, 51, 153, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
         .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
         .logo-img { width: 48px; height: 48px; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3); }
         .logo-text { font-size: 22px; font-weight: 800; color: var(--mtn-blue); letter-spacing: -0.5px; }
+        .theme-toggle {
+            display: inline-flex; align-items: center; gap: 9px; border: 2px solid var(--mtn-yellow);
+            background: var(--surface); color: var(--text-primary); padding: 10px 16px; border-radius: 999px;
+            font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.18);
+        }
+        .theme-toggle:hover { background: var(--mtn-yellow); color: #171717; transform: translateY(-2px); }
+        .theme-icon { font-size: 16px; line-height: 1; }
 
         main { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 40px 24px; position: relative; z-index: 1; }
 
@@ -203,7 +226,19 @@
             .app-card { padding: 40px 24px; }
             .hero-section { padding: 60px 24px; }
             .bundle-grid { gap: 24px; }
+            .header-container { gap: 12px; }
+            .logo-text { font-size: 16px; }
+            .theme-toggle { padding: 9px 11px; }
+            .theme-toggle-label { display: none; }
         }
+
+        /* Light/dark surface styling */
+        .bundle-card, .app-card, footer { background: var(--surface); border-color: var(--border-color); }
+        .form-input { background: var(--surface-soft); color: var(--text-primary); border-color: var(--border-color); }
+        .notification { background: color-mix(in srgb, var(--surface) 95%, transparent); border-color: var(--border-color); }
+        .section-header p, .footer-copy, .form-label-helper { color: var(--text-secondary); }
+        [data-theme="dark"] .btn-outline { background: var(--surface); color: var(--mtn-yellow); border-color: var(--mtn-yellow); }
+        [data-theme="dark"] .btn-outline:hover { background: var(--mtn-yellow); color: #171717; }
     </style>
 </head>
 <body>
@@ -218,6 +253,10 @@
                 <img src="1A49A585-478F-490B-A8BE-5320CD9258B7.png" class="logo-img" alt="MTN Dataflex">
                 <span class="logo-text">MTN DATAFLEX GH</span>
             </div>
+            <button class="theme-toggle" id="themeToggle" type="button" onclick="toggleTheme()" aria-label="Switch to dark mode">
+                <span class="theme-icon" id="themeIcon">☾</span>
+                <span class="theme-toggle-label" id="themeLabel">Dark mode</span>
+            </button>
         </div>
     </header>
 
@@ -420,6 +459,25 @@
         let isNotifActive = true;
         let selectedBundle = null;
         let isPaymentStarting = false;
+
+        function applyTheme(theme) {
+            const isDark = theme === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            const icon = document.getElementById('themeIcon');
+            const label = document.getElementById('themeLabel');
+            const toggle = document.getElementById('themeToggle');
+            if (icon) icon.textContent = isDark ? '☀' : '☾';
+            if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+            if (toggle) toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+
+        function toggleTheme() {
+            const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('dataflex-theme', nextTheme);
+            applyTheme(nextTheme);
+        }
+
+        applyTheme(localStorage.getItem('dataflex-theme') || 'light');
 
         window.onload = () => { 
             renderBundles(); 
