@@ -12,31 +12,31 @@
         
         :root {
             --mtn-yellow: #FFCC00;
-            --mtn-blue: #171717;
-            --mtn-dark: #000000;
+            --mtn-blue: #003399;
+            --mtn-dark: #001a4d;
             --premium-gold: #D4AF37;
-            --text-primary: #171717;
-            --text-secondary: #5c5540;
-            --bg-body: #fffdf4;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --bg-body: #F1F5F9;
             --glass: rgba(255, 255, 255, 0.9);
             --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
             --surface: #ffffff;
-            --surface-soft: #fff9e6;
-            --border-color: rgba(23, 23, 23, 0.10);
+            --surface-soft: #F8FAFC;
+            --border-color: rgba(0, 51, 153, 0.10);
             --radius-xl: 32px;
             --radius-lg: 20px;
         }
 
         [data-theme="dark"] {
-            --mtn-blue: #ffcc00;
-            --mtn-dark: #000000;
-            --text-primary: #fffdf4;
-            --text-secondary: #d6ceb0;
-            --bg-body: #101010;
-            --glass: rgba(18, 18, 18, 0.92);
-            --surface: #1b1b1b;
-            --surface-soft: #24200f;
-            --border-color: rgba(255, 204, 0, 0.22);
+            --mtn-blue: #003399;
+            --mtn-dark: #001a4d;
+            --text-primary: #e7edf7;
+            --text-secondary: #b8c4d8;
+            --bg-body: #121923;
+            --glass: rgba(18, 25, 35, 0.94);
+            --surface: #ffffff;
+            --surface-soft: #ffffff;
+            --border-color: rgba(91, 127, 180, 0.58);
             --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
         }
 
@@ -258,6 +258,24 @@
         [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] { background: #123d2b !important; border-color: #18794e !important; }
         [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] p { color: #a7f3d0 !important; }
         [data-theme="dark"] #successPage .info-box { background: #2b260d !important; }
+        /* Eye-friendly dark mode: dark surroundings, white content cards, blue edges. */
+        [data-theme="dark"] .bundle-card,
+        [data-theme="dark"] .app-card,
+        [data-theme="dark"] footer { background: #ffffff !important; color: #0F172A; border-color: #6f8fbe !important; }
+        [data-theme="dark"] .form-input { background: #ffffff !important; color: #0F172A; border-color: #6f8fbe; }
+        [data-theme="dark"] .notification { background: #ffffff; color: #0F172A; border-color: #6f8fbe; }
+        [data-theme="dark"] .btn-outline { background: #ffffff; color: #003399; border-color: #6f8fbe; }
+        [data-theme="dark"] .btn-outline:hover { background: #003399; color: #ffffff; }
+        [data-theme="dark"] .btn-buy { background: #003399; color: #ffffff; }
+        [data-theme="dark"] .info-box,
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"] { background: #eff6ff !important; border-color: #bfdbfe !important; }
+        [data-theme="dark"] .info-box-content p,
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"] p { color: #1e40af !important; }
+        [data-theme="dark"] #successPage .info-box { background: #eff6ff !important; border-color: #bfdbfe !important; }
+        [data-theme="dark"] .checkout-message.info { color: #1e40af; background: #eff6ff; border-color: #bfdbfe; }
+        [data-theme="dark"] #successTicket { background: #ffffff !important; border-color: #6f8fbe !important; }
+        [data-theme="dark"] .logo-text,
+        [data-theme="dark"] .section-header h2 { color: #e7edf7; }
     </style>
 </head>
 <body>
