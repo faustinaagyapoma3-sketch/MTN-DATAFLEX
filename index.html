@@ -28,15 +28,15 @@
         }
 
         [data-theme="dark"] {
-            --mtn-blue: #003399;
-            --mtn-dark: #001a4d;
-            --text-primary: #e7edf7;
-            --text-secondary: #b8c4d8;
-            --bg-body: #121923;
-            --glass: rgba(18, 25, 35, 0.94);
-            --surface: #ffffff;
-            --surface-soft: #ffffff;
-            --border-color: rgba(91, 127, 180, 0.58);
+            --mtn-blue: #82b1f2;
+            --mtn-dark: #0b1420;
+            --text-primary: #f1f5f9;
+            --text-secondary: #c2cfdf;
+            --bg-body: #0e141d;
+            --glass: rgba(14, 20, 29, 0.96);
+            --surface: #182331;
+            --surface-soft: #202f42;
+            --border-color: rgba(130, 177, 242, 0.52);
             --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
         }
 
@@ -276,6 +276,32 @@
         [data-theme="dark"] #successTicket { background: #ffffff !important; border-color: #6f8fbe !important; }
         [data-theme="dark"] .logo-text,
         [data-theme="dark"] .section-header h2 { color: #e7edf7; }
+        /* Final dark-mode pass: no white surfaces, clear readable contrast. */
+        [data-theme="dark"] .bundle-card,
+        [data-theme="dark"] .app-card,
+        [data-theme="dark"] footer,
+        [data-theme="dark"] #successTicket,
+        [data-theme="dark"] .notification { background: #182331 !important; color: #f1f5f9; border-color: #527caf !important; }
+        [data-theme="dark"] .form-input { background: #202f42 !important; color: #f1f5f9 !important; border-color: #527caf !important; }
+        [data-theme="dark"] .form-input::placeholder { color: #a9bad0; }
+        [data-theme="dark"] .btn-outline { background: #182331 !important; color: #a9ccff !important; border-color: #6d9ed8 !important; }
+        [data-theme="dark"] .btn-outline:hover { background: #2d67a8 !important; color: #ffffff !important; }
+        [data-theme="dark"] .btn-buy { background: #2d67a8 !important; color: #ffffff !important; }
+        [data-theme="dark"] .bundle-badge { background: #3b3214; color: #ffe08a; }
+        [data-theme="dark"] .badge-no-expiry { background: #143b35; color: #a7f3d0; }
+        [data-theme="dark"] .info-box,
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"],
+        [data-theme="dark"] #successPage .info-box { background: #172b43 !important; border-color: #3d6c9f !important; }
+        [data-theme="dark"] .info-box-content p,
+        [data-theme="dark"] #waitingPage .app-card > div[style*="background: #F0F9FF"] p { color: #cfe2ff !important; }
+        [data-theme="dark"] .checkout-message.info { color: #cfe2ff !important; background: #172b43 !important; border-color: #3d6c9f !important; }
+        [data-theme="dark"] .checkout-message.warning { color: #ffe08a !important; background: #3a2b12 !important; border-color: #86651f !important; }
+        [data-theme="dark"] .checkout-message.error { color: #ffc4c4 !important; background: #3a1b24 !important; border-color: #91404f !important; }
+        [data-theme="dark"] #successTicket [style*="background: white"],
+        [data-theme="dark"] #successTicket [style*="background: #F8FAFC"] { background: #182331 !important; border-color: #527caf !important; }
+        [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] { background: #143b35 !important; border-color: #2e806e !important; }
+        [data-theme="dark"] #successTicket [style*="background: #ECFDF5"] p { color: #a7f3d0 !important; }
+        [data-theme="dark"] .theme-toggle { background: #182331; color: #f1f5f9; }
     </style>
 </head>
 <body>
